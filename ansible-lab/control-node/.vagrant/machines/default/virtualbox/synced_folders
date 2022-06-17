@@ -1,1 +1,0 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"D:/Projetos/DevOps/DevOps-Mao-na-massa/ansible-lab/control-node","disabled":false,"rsync__exclude":".git/","__vagrantfile":true,"exclude":".git/","owner":"vagrant","group":"vagrant"}}}
