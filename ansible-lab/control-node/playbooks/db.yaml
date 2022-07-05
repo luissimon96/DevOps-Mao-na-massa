@@ -11,7 +11,7 @@
     - dbusername: 'root'
     - dbpassword: 'devopsmaonamassa'
   tasks:
-    - name: Configurar hosts lab ansible
+    - name: Configurar Host lab ansible host
       lineinfile:
         dest: /etc/hosts
         state: present
