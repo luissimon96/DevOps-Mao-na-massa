@@ -6,7 +6,7 @@
   yum:
     name: git
     state: latest
-- name: configurar hosts lab ansible
+- name: Configurar hosts lab ansible
   lineinfile:
     dest: /etc/hosts
     state: present
