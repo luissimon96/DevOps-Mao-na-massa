@@ -10,7 +10,6 @@
     - dbname: 'notes'
     - dbusername: 'notesapp'
     - dbpassword: 'devopsmaonamassa'
-
   tasks:
     - name: Adicionar usuario de app
       user:
@@ -50,23 +49,20 @@
       become_user: app
     - name: Registrar versao atual do pacote
       shell:
-        #cmd: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v '\['
-        cmd: mvn -o -q -Dexec.ececutable=echo -Dexec.args='${project.version}'
+        cmd: mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v '\['
         chdir: /opt/notes/
       register: app_version
     - name: Configurar serviço do Systemd
       template:
         src: etc/systemd/system/notes.service
         dest: /etc/systemd/system/notes.service
-        notify: reload daemon
+      notify: reload daemon
     - name: Iniciar serviço notes
       service:
         name: notes
         state: restarted
-
   roles:
     - configuracao-default-so
-
   handlers:
     - name: reload app
       systemd:
