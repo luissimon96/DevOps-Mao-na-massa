@@ -28,7 +28,7 @@
         remote_src: yes
     - name: Instalação do Java
       yum:
-        name: java-1.8.0-openjdk
+        name: java-1.8.0-openjdk-devel
         state: latest
     - name: Criação do diretório de app
       file:
