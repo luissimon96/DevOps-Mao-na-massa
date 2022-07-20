@@ -4,7 +4,7 @@ After=network.target
 
 
 [Service]
-User=app
+User=root
 WorkingDirectory=/opt/notes
 ExecStart=/usr/bin/java -jar -Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom /opt/notes/target/easynotes-{{app_version.stdout}}.jar
 SyslogIdentifier=notes-%i

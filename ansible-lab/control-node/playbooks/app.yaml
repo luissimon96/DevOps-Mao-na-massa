@@ -51,11 +51,11 @@
         src: application.properties
         dest: /opt/notes/src/main/resources/application.properties
     - name: Gerar pacote da aplicação
-      command: /opt/apache-maven-3.8.6/bin/mvn -f /opt/notes/pom.xml package
+      command: sudo /opt/apache-maven-3.8.6/bin/mvn -Dskipytest -f /opt/notes/pom.xml package
       become_user: app
     - name: Registrar versao atual do pacote
       shell:
-        cmd: /opt/apache-maven-3.8.6/bin/mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v '\['
+        cmd: sudo /opt/apache-maven-3.8.6/bin/mvn org.apache.maven.plugins:maven-help-plugin:2.1.1:evaluate -Dexpression=project.version | grep -v '\['
         chdir: /opt/notes/
       register: app_version
     - name: Configurar serviço do Systemd
