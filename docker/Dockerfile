@@ -4,4 +4,4 @@ USER notes:notes
 ARG JAR_FILE=*.jar
 COPY ${JAR_FILE} easy-notes.jar
 COPY application.properties application.properties
-ENTRYPOINT["java", "-jar", "/easy-note.jar"]
+ENTRYPOINT ["java", "-jar", "/easy-note.jar"]
